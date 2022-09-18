@@ -1,0 +1,18 @@
+{
+    "name": "Kogane.ProjectBrowserDirectoryNameLabel",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5eded9d8e8db68143ba1e8ecafee5453"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
