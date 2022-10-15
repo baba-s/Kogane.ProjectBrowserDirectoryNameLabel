@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -32,7 +32,7 @@ namespace Kogane.Internal
 
             position.x += labelStyle.CalcSize( content ).x + 24;
 
-            m_style ??= new GUIStyle( labelStyle )
+            m_style ??= new( labelStyle )
             {
                 normal =
                 {
