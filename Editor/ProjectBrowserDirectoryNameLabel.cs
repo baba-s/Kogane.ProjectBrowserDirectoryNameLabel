@@ -17,7 +17,9 @@ namespace Kogane.Internal
 
         private static void OnGUI( string guid, Rect selectionRect )
         {
-            if ( !ProjectBrowserDirectoryNameLabelSetting.instance.IsEnable ) return;
+            var setting = ProjectBrowserDirectoryNameLabelSetting.instance;
+
+            if ( !setting.IsEnable ) return;
 
             if ( string.IsNullOrWhiteSpace( ProjectBrowserInternal.SearchFieldText ) ) return;
 
@@ -25,18 +27,25 @@ namespace Kogane.Internal
 
             if ( string.IsNullOrWhiteSpace( assetPath ) ) return;
 
-            var filename   = Path.GetFileNameWithoutExtension( assetPath );
+            var filename = setting.IsConsiderExtension
+                    ? Path.GetFileName( assetPath )
+                    : Path.GetFileNameWithoutExtension( assetPath )
+                ;
+
             var labelStyle = EditorStyles.label;
             var content    = new GUIContent( filename );
+            var offset     = setting.Offset;
             var position   = selectionRect;
 
             position.x += labelStyle.CalcSize( content ).x + 24;
+            position.x += offset.x;
+            position.y += offset.y;
 
             m_style ??= new( labelStyle )
             {
                 normal =
                 {
-                    textColor = new Color32( 144, 144, 144, 255 ),
+                    textColor = setting.Color,
                 },
             };
 
